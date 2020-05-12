@@ -1,5 +1,7 @@
 package com.curtisnewbie.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -23,4 +25,8 @@ public class AppModule {
         return new HttpService();
     }
 
+    @Provides
+    ObjectMapper provideObjectMapper(){
+        return new ObjectMapper();
+    }
 }

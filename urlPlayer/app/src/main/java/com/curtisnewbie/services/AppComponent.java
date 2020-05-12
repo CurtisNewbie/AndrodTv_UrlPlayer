@@ -20,4 +20,7 @@ import dagger.Component;
 public interface AppComponent {
 
     void inject(MainActivity activity);
+
+    void inject(HttpService httpService);
+
 }
