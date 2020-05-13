@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UrlPlayer</string>
+    <string name="enterIpAddress">Enter IP Address</string>
+    <string name="connectServer">Connect To Server</string>
 </resources>
