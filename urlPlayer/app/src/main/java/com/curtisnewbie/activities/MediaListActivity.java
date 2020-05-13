@@ -36,6 +36,6 @@ public class MediaListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MediaListAdapter());
+        recyclerView.setAdapter(new MediaListAdapter(this));
     }
 }

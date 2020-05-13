@@ -1,7 +1,6 @@
 package com.curtisnewbie.services;
 
 import android.util.Log;
-import android.widget.TextView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -25,7 +24,7 @@ import javax.inject.Singleton;
 @Singleton
 public class HttpService {
 
-    String baseUrl;
+    String baseIp;
 
     @Inject
     ObjectMapper objectMapper;
@@ -37,8 +36,8 @@ public class HttpService {
     /**
      * Init the http service with the base url
      */
-    public void init(String baseUrl) {
-        this.baseUrl = baseUrl;
+    public void init(String baseIp) {
+        this.baseIp = baseIp;
     }
 
     /**
@@ -47,7 +46,7 @@ public class HttpService {
      * @return
      */
     public boolean isInitialised() {
-        return this.baseUrl != null;
+        return this.baseIp != null;
     }
 
     /**
@@ -62,7 +61,7 @@ public class HttpService {
         List<String> list = null;
         InputStream in = null;
         try {
-            URL url = new URL(String.format("http://%s:8080/media/all", baseUrl));
+            URL url = new URL(String.format("http://%s:8080/media/all", baseIp));
             URLConnection conn = url.openConnection();
             in = conn.getInputStream();
             StringBuilder sb = new StringBuilder();
@@ -86,13 +85,17 @@ public class HttpService {
         return list;
     }
 
+    public String getBaseIp() {
+        return this.baseIp;
+    }
+
     /**
-     * Return the stream of a media
+     * Build a http url for the media
      *
-     * @param filename
-     * @return stream of a media
+     * @param mediaName
+     * @return
      */
-    public InputStream getMedia(String filename) {
-        return null;
+    public String buildMediaUrl(String mediaName) {
+        return String.format("http://%s:8080/media?filename=%s", baseIp, mediaName);
     }
 }
