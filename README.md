@@ -6,4 +6,4 @@ An Android TV app for my <a href="https://github.com/CurtisNewbie/MediaHoster">M
 
 Note: This demo is recorded remotely using ADB CLI, the video played could not be recorded. This app is in English, and it only works with the <a href="https://github.com/CurtisNewbie/MediaHoster">MediaHoster</a>.
 
-<img src="https://user-images.githubusercontent.com/45169791/81816342-c7837600-955d-11ea-8387-5e957bb34f93.gif" width="1024"/>
+<img src="https://user-images.githubusercontent.com/45169791/81818017-0dd9d480-9560-11ea-9f98-df5a1c853259.gif" width="1024"/>
