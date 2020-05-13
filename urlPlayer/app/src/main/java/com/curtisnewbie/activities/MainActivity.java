@@ -2,6 +2,7 @@ package com.curtisnewbie.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,14 +18,17 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     protected HttpService httpService;
 
-    protected EditText serverIpEt = findViewById(R.id.serverIpEt);
-    protected Button connectServerBtn = findViewById(R.id.connectServerBtn);
+    protected EditText serverIpEt;
+    protected Button connectServerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         App.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.serverIpEt = findViewById(R.id.serverIpEt);
+        this.serverIpEt.setText("192.168.1."); // easier to enter the ip (change it if necessary)
+        this.connectServerBtn = findViewById(R.id.connectServerBtn);
 
         this.connectServerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,18 +36,10 @@ public class MainActivity extends AppCompatActivity {
                 String ip = serverIpEt.getText().toString().trim();
                 if (!ip.isEmpty()) {
                     httpService.init(ip);
+                    Intent intent = new Intent(".MediaListActivity");
+                    startActivity(intent);
                 }
             }
         });
     }
 }
-
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                List<String> list = httpService.getMediaList();
-//                for (String s : list) {
-//                    System.out.println("URLPlayer " + s);
-//                }
-//            }
-//        }).start();

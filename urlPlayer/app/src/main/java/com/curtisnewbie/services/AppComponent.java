@@ -1,6 +1,8 @@
 package com.curtisnewbie.services;
 
 import com.curtisnewbie.activities.MainActivity;
+import com.curtisnewbie.activities.MediaListActivity;
+import com.curtisnewbie.activities.MediaListAdapter;
 
 import javax.inject.Singleton;
 
@@ -23,4 +25,7 @@ public interface AppComponent {
 
     void inject(HttpService httpService);
 
+    void inject(MediaListActivity mediaListActivity);
+
+    void inject(MediaListAdapter mediaListAdapter);
 }
