@@ -3,7 +3,7 @@ package com.curtisnewbie.activities;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -55,7 +55,7 @@ public class MediaListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((ItemViewHolder) holder).tv.setText(list.get(position));
+        ((ItemViewHolder) holder).btn.setText(list.get(position));
     }
 
     @Override
@@ -65,11 +65,11 @@ public class MediaListAdapter extends RecyclerView.Adapter {
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tv;
+        public Button btn;
 
         public ItemViewHolder(View v) {
             super(v);
-            this.tv = v.findViewById(R.id.nameTextView);
+            this.btn = v.findViewById(R.id.mediaNameBtn);
         }
     }
 }
